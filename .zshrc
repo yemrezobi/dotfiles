@@ -46,10 +46,15 @@ plugins=(
     zsh-vi-mode
 )
 
-alias ls='lsd '
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+export DOWNLOADS_WIN="/mnt/c/Users/$USER/Downloads"
+
+alias ls='lsd '
+alias please='sudo $(fc -ln -1)'
+alias pls='please'
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'

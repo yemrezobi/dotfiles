@@ -1,0 +1,20 @@
+zsh
+  ohmyzh
+  powerlevel10k
+  zsh-syntax-highlighting
+  zsh-vi-mode
+neovim
+  vim-plug
+tmux
+  tpm
+chromaterm
+powerline
+lazygit
+htop
+shellcheck
+nodejs
+  npm
+  neovim
+lsd
+ripgrep
+lnav
