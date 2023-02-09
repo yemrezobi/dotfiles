@@ -43,7 +43,7 @@ COMPLETION_WAITING_DOTS="true"
 
 plugins=(
     git
-    zsh-vi-mode
+#    zsh-vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -55,6 +55,7 @@ export DOWNLOADS_WIN="/mnt/c/Users/$USER/Downloads"
 alias ls='lsd '
 alias please='sudo $(fc -ln -1)'
 alias pls='please'
+alias fd='fd --one-file-system '
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
