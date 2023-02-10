@@ -27,34 +27,7 @@ Plug 'ray-x/lsp_signature.nvim'
 
 call plug#end()
 
-let g:coq_settings = { 'auto_start': 'shut-up' }
-
 lua require('config')
 
-let g:loaded_ruby_provider = 0
-let g:loaded_perl_provider = 0
-let g:python3_host_prog = '/usr/bin/python3'
-let g:airline_powerline_fonts = 1
-
 filetype plugin indent on
-" show existing tab with 4 spaces width
-set tabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
-set expandtab
-
-" line numbers
-set number
-
-set mouse=
-
-" enable 24-bit colors
-set termguicolors
 colorscheme Tomorrow-Night
-"hi Normal guibg=none
-
-" map enter to clear search highlighting
-nnoremap <silent> <esc> :noh<return><esc>
-
-set keywordprg=:DD!
