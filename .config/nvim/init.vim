@@ -1,6 +1,5 @@
 call plug#begin()
 
-Plug 'bronson/vim-trailing-whitespace'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'

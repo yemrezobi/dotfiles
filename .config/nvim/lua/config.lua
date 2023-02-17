@@ -12,6 +12,8 @@ vim.o.expandtab = true
 vim.o.number = true
 vim.o.mouse = false
 vim.o.termguicolors = true
+-- highlight whitespace at end of lines
+vim.fn.matchadd('errorMsg', [[\s\+$]])
 
 local mapopts = { silent=true, noremap=true }
 -- Esc to clear search highlighting
@@ -98,7 +100,6 @@ require('trouble').setup()
 -- nvim-tree --
 
 require('nvim-tree').setup{
-    open_on_setup = true,
     open_on_tab = true,
     hijack_cursor = true,
     update_focused_file = {
