@@ -47,20 +47,29 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+  export VISUAL="$EDITOR"
+else
+  export EDITOR='nvim'
+  export VISUAL="$EDITOR"
+fi
+
+
 # User configuration
 
-export DOWNLOADS_WIN="/mnt/c/Users/$USER/Downloads"
+export FZF_DEFAULT_COMMAND="fd --hidden"
 
-alias ls='lsd '
+alias ls='lsd --git'
 alias please='sudo $(fc -ln -1)'
 alias pls='please'
 alias fd='fd --one-file-system '
+alias nvimconf='nvim +"cd ~/.config/nvim/lua" ~/.config/nvim/init.lua '
+alias zshconf='$VISUAL ~/.zshrc && source ~/.zshrc'
+alias his='history -E | less +G'
+eval "$(thefuck --alias)"
 
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
+source "$HOME/.zshrc_extra"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
