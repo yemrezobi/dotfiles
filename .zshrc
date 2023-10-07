@@ -58,7 +58,11 @@ fi
 
 # User configuration
 
-export FZF_DEFAULT_COMMAND="fd --hidden"
+export FZF_DEFAULT_COMMAND='fd --hidden --no-ignore'
+export MCFLY_RESULTS=20
+export MCFLY_PROMPT='❯'
+export MCFLY_KEY_SCHEME='vim'
+
 
 alias ls='lsd --git'
 alias please='sudo $(fc -ln -1)'
@@ -68,6 +72,8 @@ alias nvimconf='nvim +"cd ~/.config/nvim/lua" ~/.config/nvim/init.lua '
 alias zshconf='$VISUAL ~/.zshrc && source ~/.zshrc'
 alias his='history -E | less +G'
 eval "$(thefuck --alias)"
+eval "$(zoxide init zsh)"
+eval "$(mcfly init zsh)"
 
 source "$HOME/.zshrc_extra"
 
