@@ -22,7 +22,6 @@ return {
             highlight = {
                 enable = true,
                 disable = {
-                    'cpp',
                 },
                 additional_vim_regex_highlighting = false,
             },

@@ -27,6 +27,9 @@ return {
     opts = {
       show_current_context = true,
       show_current_context_start = true,
+      show_first_indent_level = 1,
+      use_treesitter = true,
+      use_treesitter_scope = true,
     },
   },
 }

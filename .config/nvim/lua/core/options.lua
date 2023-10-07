@@ -3,6 +3,7 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.python3_host_prog = '/usr/bin/python3'
 vim.g.airline_powerline_fonts = 1
+vim.g.splitleft = true
 
 vim.o.scrolloff = 5
 vim.o.tabstop = 4

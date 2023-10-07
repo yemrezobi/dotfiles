@@ -22,7 +22,7 @@ end
 
 M.get_project_base = function()
   -- git repo root
-  local root_dir = vim.system({ 'git', 'rev-parse', '--show-toplevel' }, { text = true }):wait()
+  local root_dir = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
   if root_dir.code == 0 then
     return root_dir.stdout
   end
@@ -80,16 +80,25 @@ end
 
 M.gitsigns = function()
   local mapopts = { noremap = true, silent = true, }
-  vim.keymap.set('n', '<Leader>hs', function() require('gitsigns').stage_hunk() end)
-  vim.keymap.set('n', '<Leader>hr', function() require('gitsigns').reset_hunk() end)
-  vim.keymap.set('v', '<Leader>hs', function() require('gitsigns').stage_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end)
-  vim.keymap.set('v', '<Leader>hr', function() require('gitsigns').reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end)
-  vim.keymap.set('v', '<Leader>hP', function() require('gitsigns').preview_hunk() end)
-  vim.keymap.set('v', '<Leader>hn', function() require('gitsigns').next_hunk({ preview = true, }) end)
-  vim.keymap.set('v', '<Leader>hp', function() require('gitsigns').prev_hunk({ preview = true, }) end)
-  vim.keymap.set('v', '<Leader>hh', function() require('gitsigns').setloclist() end)
-  vim.keymap.set('v', '<Leader>hd', function() require('gitsigns').diffthis() end)
-  vim.keymap.set('v', '<Leader>hb', function() require('gitsigns').toggle_current_line_blame() end)
+  vim.keymap.set('n', '<Leader>hs', function() require('gitsigns').stage_hunk() end, mapopts)
+  vim.keymap.set('n', '<Leader>hr', function() require('gitsigns').reset_hunk() end, mapopts)
+  vim.keymap.set('v', '<Leader>hs', function() require('gitsigns').stage_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end, mapopts)
+  vim.keymap.set('v', '<Leader>hr', function() require('gitsigns').reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end, mapopts)
+  vim.keymap.set('v', '<Leader>hP', function() require('gitsigns').preview_hunk() end, mapopts)
+  vim.keymap.set('v', '<Leader>hn', function() require('gitsigns').next_hunk({ preview = true, }) end, mapopts)
+  vim.keymap.set('v', '<Leader>hp', function() require('gitsigns').prev_hunk({ preview = true, }) end, mapopts)
+  vim.keymap.set('v', '<Leader>hh', function() require('gitsigns').setloclist() end, mapopts)
+  vim.keymap.set('v', '<Leader>hd', function() require('gitsigns').diffthis() end, mapopts)
+  vim.keymap.set('v', '<Leader>hb', function() require('gitsigns').toggle_current_line_blame() end, mapopts)
+end
+
+M.dap = function()
+  local mapopts = { silent = true, noremap = true, }
+  vim.keymap.set('n', '<F5>', function() require('dap').continue() end, mapopts)
+  vim.keymap.set('n', '<F6>', function() require('dap').step_over() end, mapopts)
+  vim.keymap.set('n', '<F7>', function() require('dap').step_into() end, mapopts)
+  vim.keymap.set('n', '<F8>', function() require('dap').step_out() end, mapopts)
+  vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end, mapopts)
 end
 
 return M
